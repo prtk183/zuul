@@ -1,0 +1,33 @@
+package com.szuul.model;
+
+import java.sql.Timestamp;
+import java.util.Date;
+import java.util.UUID;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import lombok.Data;
+
+@Document
+@Data
+public class Audit {
+
+/*EventId - UUID
+eventName - String
+eventType - String
+eventDate - timestamp
+userId - String
+oldValue - BaseEntity
+newValue - BaseEntity */
+	@Id
+	public UUID EventId;
+	public String eventName;
+	public String eventType;
+	public Date eventDate;
+	
+	public String userId;
+	public Object oldValue;
+	public Object newValue;
+	
+}

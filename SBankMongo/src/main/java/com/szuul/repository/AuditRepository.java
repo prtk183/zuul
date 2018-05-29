@@ -1,0 +1,22 @@
+package com.szuul.repository;
+
+import java.io.Serializable;
+import java.util.Optional;
+import java.util.UUID;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
+
+import com.szuul.model.Audit;
+
+public interface AuditRepository extends  MongoRepository<Audit, Serializable>{
+	
+
+
+	@Query
+	void deleteByEventId(long eventId);
+
+	@Query
+	Optional<Audit> findByEventId(long id);
+
+}
